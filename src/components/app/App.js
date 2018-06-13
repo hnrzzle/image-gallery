@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+import Header from './Header';
+import Footer from './Footer';
+import Main from './Main';
 
 export default class App extends Component {
   render() {
     return (
       <main>
-        <h1>I'm an app!</h1>
+        <Header />
+        <Main />
+        <Footer />
       </main>
     );
   }
