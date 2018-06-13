@@ -13,7 +13,7 @@ content is controlled by the router and whose layout is controlled by css grid, 
 The `AlbumDetail` component (displayed at route `/albums/:id`) has a subroute area that displays
 one of three image views or the new image form
 
-## Routes
+## Client side routes
 
 We won't be implementing all of these routes on day 1, but here is complete overview:
 
