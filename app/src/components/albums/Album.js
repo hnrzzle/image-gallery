@@ -1,16 +1,30 @@
 import React, { Component } from 'react';
-import styles from './Album.css';
+import { Link } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
+
+import AlbumThumbnails from '../albums/AlbumThumbnails';
+import AlbumList from '../albums/AlbumList';
+import AlbumGallery from '../albums/AlbumGallery';
 
 export default class Album extends Component {
   render() {
     return (
-      <li className={styles.album}>
-        <img className="posterimage" src="http://support.yumpu.com/en/wp-content/themes/qaengine/img/default-thumbnail.jpg"/>
-        <div>
-          <h2>Album Title</h2>
-          <p className="album-description">Album Description</p>
-        </div>
-      </li>
+      <div>
+        <h3>Album Title</h3>
+      
+        <ul>
+          <li><Link to="/albums/:id/images/thumbnail">Thumbnails</Link></li>
+          <li><Link to="/albums/:id/images/list">List</Link></li>
+          <li><Link to="/albums/:id/images/gallery">Gallery</Link></li>
+        </ul>
+
+        <Switch>
+          <Route path="/albums/:id/images/thumbnail" render={() => {return <AlbumThumbnails />;}}/>
+          <Route path="/albums/:id/images/list" render={() => {return <AlbumList />;}}/>
+          <Route path="/albums/:id/images/gallery" render={() => {return <AlbumGallery />;}}/>
+        </Switch>
+
+      </div>
     );
   }
 }

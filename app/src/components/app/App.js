@@ -6,6 +6,7 @@ import Header from './Header';
 import Images from '../images/Images';
 
 import Albums from '../albums/Albums';
+import Album from '../albums/Album';
 import NewAlbum from '../albums/NewAlbum';
 
 export default class App extends Component {
@@ -20,9 +21,10 @@ export default class App extends Component {
               <Route exact path="/" component={Home}/>
 
               <Route exact path="/albums" component={Albums}/>
-              <Route path="/albums/new" component={NewAlbum}/>
+              <Route exact path="/albums/new" component={NewAlbum}/>
+              <Route path="/albums/:id" component={Album} />
 
-              <Route path="/images" component={Images}/>
+              <Route exact path="/images" component={Images}/>
               <Redirect to="/"/>
             </Switch>
           </main>
@@ -34,3 +36,4 @@ export default class App extends Component {
     );
   }
 }
+
