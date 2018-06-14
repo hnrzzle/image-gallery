@@ -4,6 +4,7 @@ import Nav from './Nav';
 import Home from './Home';
 import Header from './Header';
 import Albums from '../albums/Albums';
+import Images from '../images/Images';
 
 export default class App extends Component {
   render() {
@@ -16,8 +17,8 @@ export default class App extends Component {
             <Switch>
               <Route exact path="/" component={Home}/>
               <Route path="/albums" component={Albums}/>
-              {/*<Route exact path="/images" component={Images}/>
-              <Route exact path="/albums/new" component={NewAlbum}/> */}
+              <Route exact path="/images" component={Images}/>
+              {/* <Route exact path="/albums/new" component={NewAlbum}/> */}
               <Redirect to="/"/>
             </Switch>
           </main>
