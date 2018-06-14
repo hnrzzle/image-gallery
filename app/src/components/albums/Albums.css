@@ -1,0 +1,14 @@
+:local(.albums)  {
+
+  padding: 1rem 2rem;
+
+    li {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start
+  }
+  h2 {
+    padding-left: 2rem;
+  }
+}

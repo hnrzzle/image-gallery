@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
+import Album from './Album';
+import styles from './Albums.css';
 
 export default class Albums extends Component {
   render() {
 
     return (
-      <h3>Albums</h3>
+      <ul className={styles.albums}>
+        <Album/>
+        {/* {albums.map((album, i) => (
+          <Album key={i} album={album}/>
+        ))} */}
+      </ul>
     );
   }
 }
