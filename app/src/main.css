@@ -1,3 +1,11 @@
+:root {
+  --black: #2A2D34;
+  --dark-blue: #1D576B;
+  --light-blue: #197F96;
+  --orange-accent: #EDA855;
+  --white: #F2EFEA;
+}
+
 body {
   display: grid;
   grid-template-rows: 3rem 5rem 1fr 3rem;
@@ -6,14 +14,15 @@ body {
   "header"
   "main"
   "footer";
-  background-color: #2E9191;
+  background-color: var(--light-blue);
   margin: 0;
   font-family: 'Muli', sans-serif;
 }
 
 nav { 
   grid-area: nav;
-  background-color: #1D576B
+  background-color: var(--dark-blue);
+  border-bottom: 2px solid;
  }
 header { 
   grid-area: header;
@@ -23,5 +32,5 @@ main {
  }
 footer { 
   grid-area: footer;
-  background-color: #1D576B;
+  background-color: var(--dark-blue);
  }
