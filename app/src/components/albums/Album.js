@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
-import styles from './Album.css';
 
-
-export class Album extends Component {
+export default class Album extends Component {
   render() {
     return (
       <li>
