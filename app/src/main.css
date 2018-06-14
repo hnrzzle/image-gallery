@@ -1,0 +1,14 @@
+body {
+  display: grid;
+  grid-template-rows: 2rem 5rem 1fr 2rem;
+  grid-template-areas: 
+  "nav"
+  "header"
+  "main"
+  "footer"
+}
+
+nav { grid-area: nav }
+header { grid-area: header }
+main { grid-area: main }
+footer { grid-area: footer }
