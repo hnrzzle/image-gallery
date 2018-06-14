@@ -7,12 +7,12 @@ export default class Albums extends Component {
     // const { albums } = this.props;
 
     return (
-      <div>
-        <h2>Hello</h2>
+      <ul>
+        <Album/>
         {/* {albums.map((album, i) => (
           <Album key={i} album={album}/>
         ))} */}
-      </div>
+      </ul>
     );
   }
 }

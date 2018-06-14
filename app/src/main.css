@@ -15,7 +15,7 @@ body {
 
 .app {
   display: grid;
-  grid-template-rows: 3rem 1fr 1fr 3rem;
+  grid-template-rows: 3rem 200px 1fr 3rem;
   grid-template-areas: 
     "nav"
     "header"
