@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import Nav from './Nav';
 import Home from './Home';
 import Header from './Header';
-import styles from '../../main.css';
 
 export default class App extends Component {
   render() {
