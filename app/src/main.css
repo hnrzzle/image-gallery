@@ -1,14 +1,26 @@
 body {
   display: grid;
-  grid-template-rows: 2rem 5rem 1fr 2rem;
+  grid-template-rows: 3rem 5rem 1fr 3rem;
   grid-template-areas: 
   "nav"
   "header"
   "main"
-  "footer"
+  "footer";
+  background-color: #2E9191;
+  margin: 0;
 }
 
-nav { grid-area: nav }
-header { grid-area: header }
-main { grid-area: main }
-footer { grid-area: footer }
+nav { 
+  grid-area: nav;
+  background-color: #1D576B
+ }
+header { 
+  grid-area: header;
+ }
+main { 
+  grid-area: main;
+ }
+footer { 
+  grid-area: footer;
+  background-color: #1D576B;
+ }
