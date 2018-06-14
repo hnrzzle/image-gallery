@@ -14,6 +14,9 @@ export default class App extends Component {
           <Header/>
           <Switch>
             <Route exact path="/" component={Home}/>
+            {/* <Route exact path="/albums" component={Albums}/>
+            <Route exact path="/images" component={Images}/>
+            <Route exact path="/albums/new" component={NewAlbum}/> */}
             <Redirect to="/"/>
           </Switch>
           <footer>
