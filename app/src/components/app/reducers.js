@@ -8,7 +8,3 @@ export function loading(state = false, { type }) {
       return state;
   }
 }
-
-// export function error(state = null, { type, payload }) {
-  
-// }
