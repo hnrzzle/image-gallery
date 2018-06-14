@@ -34,6 +34,8 @@ nav ul {
   align-content: center;
   list-style-type: none;
   margin: 0;
+  vertical-align: middle;
+  line-height: 3rem;
 }
 
 ul li a {
