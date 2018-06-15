@@ -13,6 +13,10 @@ body {
   color: var(--black);
 }
 
+main {
+  margin: 0 1rem;
+}
+
 .app {
   display: grid;
   grid-template-rows: 3rem 200px 1fr 3rem;
