@@ -12,6 +12,8 @@ export default class ImageThumbnails extends Component {
           <Thumbnail/>
           <Thumbnail/>
           <Thumbnail/>
+          <Thumbnail/>
+          <Thumbnail/>
         </ul>
       </Fragment>
     );
