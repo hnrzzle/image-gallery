@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const Album = require('../models/albums');
+const Album = require('../models/Album');
 const errorHandler = require('../utils/error-handler');
 
 module.exports = router
   .get('/', (req, res) => {
-    Album.find()
+    Album.find(req.query)
       .lean()
       .then(albums => res.json(albums))
       .catch(err => errorHandler(err, req, res));
@@ -15,7 +15,7 @@ module.exports = router
       .then(album => res.json(album))
       .catch(err => errorHandler(err, req, res));
   })
-  .post('/', (req, res) => {
+  .post('/new', (req, res) => {
     Album.create(req.body)
       .then(album => res.json(album))
       .catch(err => errorHandler(err, req, res));
