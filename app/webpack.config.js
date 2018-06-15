@@ -12,6 +12,9 @@ module.exports = {
     filename: 'bundle.[hash].js'
   },
   devServer: {
+    proxy: {
+      '/api': 'http://localhost:3000'
+    },
     contentBase: `./${buildDir}`,
     historyApiFallback: true
   },
