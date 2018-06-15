@@ -6,6 +6,11 @@
   --white: #F2EFEA;
 }
 
+html,body {
+  height: 100%;
+  width: 100%;
+}
+
 body {
   background-color: var(--light-blue);
   margin: 0;
@@ -13,9 +18,14 @@ body {
   color: var(--black);
 }
 
+main {
+  margin: 0 1rem;
+}
+
 .app {
   display: grid;
   grid-template-rows: 3rem 200px 1fr 3rem;
+  height: 100%;
   grid-template-areas: 
     "nav"
     "header"
@@ -38,6 +48,7 @@ nav ul {
   vertical-align: middle;
   line-height: 3rem;
 }
+
 
 ul li a {
   text-decoration: none;

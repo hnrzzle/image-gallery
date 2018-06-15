@@ -11,7 +11,7 @@ export default class Nav extends Component {
           <li><Link to="/">Home</Link></li>
           <li><Link to="/albums">Albums</Link></li>
           <li><Link to="/images">All Images</Link></li>
-          <li><Link to="/albums/new">New Album</Link></li>
+          <li><Link to="/albums/new">Create a New Album</Link></li>
         </ul>
       </nav>
     );

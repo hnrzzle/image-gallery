@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
-import AlbumThumbnails from '../albums/AlbumThumbnails';
-import AlbumList from '../albums/AlbumList';
-import AlbumGallery from '../albums/AlbumGallery';
+import ImageThumbnails from '../albums/ImageThumbnails';
+import ImageList from '../albums/ImageList';
+import ImageGallery from '../albums/ImageGallery';
 
 export default class Album extends Component {
   render() {
@@ -19,9 +19,9 @@ export default class Album extends Component {
         </ul>
 
         <Switch>
-          <Route path="/albums/:id/images/thumbnail" render={() => {return <AlbumThumbnails />;}}/>
-          <Route path="/albums/:id/images/list" render={() => {return <AlbumList />;}}/>
-          <Route path="/albums/:id/images/gallery" render={() => {return <AlbumGallery />;}}/>
+          <Route path="/albums/:id/images/thumbnail" render={() => {return <ImageThumbnails />;}}/>
+          <Route path="/albums/:id/images/list" render={() => {return <ImageList />;}}/>
+          <Route path="/albums/:id/images/gallery" render={() => {return <ImageGallery />;}}/>
           <Redirect to="/albums/:id/images/thumbnail" />
         </Switch>
 
