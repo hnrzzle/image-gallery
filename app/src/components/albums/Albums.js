@@ -14,6 +14,7 @@ export default class Albums extends Component {
           <Album/>
           <Album/>
           <Album/>
+          <Album/>
           {/* {albums.map((album, i) => (
             <Album key={i} album={album}/>
           ))} */}
