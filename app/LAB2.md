@@ -3,11 +3,11 @@ Image Gallery - Add Images!
 
 Continue with same pairs. For day two complete
 
-1. Complete image-related subroutes:
+1. Complete image-related sub-routes:
     1. New Image
         * user can enter new image
     1. View 1 (Thumbnail)
-        * show true thumbnail (via cloudinary) plust title
+        * show true thumbnail (via Cloudinary) plus title
     1. View 2 (Gallery)
         * show big image, title and description
     1. View 3 (List)

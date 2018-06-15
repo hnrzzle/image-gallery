@@ -6,7 +6,7 @@ import Header from './Header';
 import Images from '../images/Images';
 
 import Albums from '../albums/Albums';
-import Album from '../albums/Album';
+import AlbumDetail from '../albums/AlbumDetail';
 import NewAlbum from '../albums/NewAlbum';
 
 export default class App extends Component {
@@ -22,7 +22,7 @@ export default class App extends Component {
 
               <Route exact path="/albums" component={Albums}/>
               <Route exact path="/albums/new" component={NewAlbum}/>
-              <Route path="/albums/:id" component={Album} />
+              <Route path="/albums/:id" component={AlbumDetail} />
 
               <Route exact path="/images" component={Images}/>
               <Redirect to="/"/>
