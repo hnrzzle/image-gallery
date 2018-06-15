@@ -6,8 +6,8 @@ before(() => connect(process.env.MONGO_URI));
 after(() => mongoose.connection.close());
 
 module.exports = {
-  dropCollection(collection) {
-    return mongoose.connection.dropCollection(collection)
+  dropCollection(albums) {
+    return mongoose.connection.dropCollection(albums)
       .catch(err => {
         if(err.codeName !== 'NamespaceNotFound') throw err;
 
