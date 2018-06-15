@@ -12,12 +12,17 @@ describe('Album API', () => {
     posterImage:  'https://i.imgur.com/H5hI3FV.jpg'
   };
 
-  it('Saves and retrieves an album', () => {
-    return request.post('/')
-      .send(album)
+  it('Gets all albums', () => {
+    return request.get('/api/albums')
       .then(({ body }) => {
-        const { _id } = body;
-        assert.ok(_id);
       });
   });
+
+  it('Saves and retrieves an album', () => {
+    return request.post('api/albums/new')
+      .send(album)
+      .then(({ body }) => {
+      });
+  });
+
 });
