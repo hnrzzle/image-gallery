@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import Thumbnail from './Thumbnail';
-import styles from './AlbumThumbnails.css';
+import styles from './ImageThumbnails.css';
 
-export default class AlbumThumbnails extends Component {
+export default class ImageThumbnails extends Component {
   
   render() {
     return (

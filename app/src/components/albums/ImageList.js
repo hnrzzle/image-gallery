@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class AlbumList extends Component {
+export default class ImageList extends Component {
 
 
 

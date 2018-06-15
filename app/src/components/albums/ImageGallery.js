@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 
-export default class AlbumGallery extends Component {
+export default class ImageGallery extends Component {
 
   
   render() {

@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Album.css';
 
 export default class Album extends Component {
   render() {
     return (
-      <div>
-        <h3>Albums</h3>
+      <Fragment>
         <li className={styles.album}>
           <Link to="/albums/:id">
             <img className="posterimage" src="http://support.yumpu.com/en/wp-content/themes/qaengine/img/default-thumbnail.jpg"/>
@@ -14,7 +13,7 @@ export default class Album extends Component {
             <p className="album-description">Album Description</p>
           </Link>
         </li>
-      </div>
+      </Fragment>
     );
   }
 }
