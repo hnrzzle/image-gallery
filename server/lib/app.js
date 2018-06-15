@@ -13,7 +13,7 @@ const images = require('./routes/images');
 app.use('/api/images', images);
 
 app.use((req, res) => {
-  res.sendFile('index.html', { root: '../public/src'} );
+  res.sendFile('index.html', { root: './public'} );
 });
 
 app.use(errorHandler());
