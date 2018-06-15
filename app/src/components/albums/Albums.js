@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styles from './Albums.css';
-
 import Album from './Album';
 
 export default class Albums extends Component {
@@ -8,7 +7,7 @@ export default class Albums extends Component {
 
     return (
       <ul className={styles.albums}>
-        <Album />
+        <Album/>
         {/* {albums.map((album, i) => (
           <Album key={i} album={album}/>
         ))} */}
