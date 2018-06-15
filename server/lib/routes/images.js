@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const Image = require('../models/image');
+const Image = require('../models/Image');
 
 module.exports = router
   .get('/', (req, res, next) => {
