@@ -22,9 +22,13 @@ module.exports = router
       .catch(err => errorHandler(err, req, res));
   })
   .get('/albums/:id/images', (req, res) => {
-    return Image.findById({ albumId: req.params.id })
+    return Image.find({ albumId: req.params.id })
       .lean()
-      .then(album => res.json(album))
+      .then(album => {
+        console.log('got here');
+        console.log(album);
+        res.json(album);
+      })
       .catch(err => errorHandler(err, req, res));
   })
   .post('/albums/:id/images', (req, res) => {

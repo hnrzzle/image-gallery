@@ -19,7 +19,7 @@ export default class Album extends Component {
         </ul>
 
         <Switch>
-          <Route path="/albums/:id/images/thumbnail" render={() => {return <ImageThumbnails />;}}/>
+          <Route path="/albums/:id/images/thumbnail" render={({ match }) => {return <ImageThumbnails albumId={match.params.id} />;}}/>
           <Route path="/albums/:id/images/list" render={() => {return <ImageList />;}}/>
           <Route path="/albums/:id/images/gallery" render={() => {return <ImageGallery />;}}/>
           <Redirect to="/albums/:id/images/thumbnail" />
