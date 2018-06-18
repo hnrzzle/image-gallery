@@ -1,3 +1,4 @@
+/* eslint no-console: 0 */
 module.exports = function createErrorHandler(log = console.log) {
 
   // eslint-disable-next-line

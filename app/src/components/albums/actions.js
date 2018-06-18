@@ -1,3 +1,5 @@
+/* eslint no-console: 0 */
+
 import { ALBUMS_LOAD, ALBUM_ADD, IMAGES_LOAD, IMAGE_ADD } from './reducers';
 import { getAllAlbums, postAlbum, getImages, postImage } from '../../services/api';
 
