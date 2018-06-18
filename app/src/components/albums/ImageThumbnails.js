@@ -19,11 +19,15 @@ class ImageThumbnails extends Component {
   }
   
   render() {
+    const { images } = this.props;
+
     return (
       <Fragment>
         <h3>Thumbnail View</h3>
         <ul className={styles.thumbnails}>
-          <Thumbnail/>
+          {images.map((image, i) => (
+            <Thumbnail key={i} image={image}/>
+          ))}
         </ul>
       </Fragment>
     );
