@@ -7,7 +7,7 @@ describe('Image model test', () => {
       title:  'The Moon',
       description:  'The moon. The dark side.',
       url:  'https://i.imgur.com/H5hI3FV.jpg',
-      albumId: "4"
+      albumId: '4'
     };
 
     const image = new Image(data);
@@ -25,7 +25,7 @@ describe('Image model test', () => {
     return validation.errors;
   };
 
-  it('Required fields working', () => {})
+  it('Required fields working', () => {});
   const image = new Image({});
   const errors = getValidationErrors(image.validateSync());
   assert.equal(Object.keys(errors).length, 4);

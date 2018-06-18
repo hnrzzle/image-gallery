@@ -1,4 +1,3 @@
-// 
 const { assert } = require('chai');
 const request = require('./request');
 const Album = require('../../lib/models/Album');
@@ -18,13 +17,6 @@ describe('Album API', () => {
     description:  'Is cute bunny',
     url:  'fake url.com',
     albumId:  null,
-    };
-  
-  let imageTwo = {
-    title:  'A not cute bunny',
-    description:  'Is not a cute bunny',
-    url:  'fake url.com',
-    albumId:  null,
   };
   
   it('Saves and retrieves an album', () => {
@@ -36,7 +28,7 @@ describe('Album API', () => {
         assert.equal(__v, 0);
         assert.deepEqual(body, {
           _id, __v,
-          ...album
+          ...album 
         });
         album = body;
       });
@@ -46,8 +38,8 @@ describe('Album API', () => {
     return request.get(`/api/albums/${album._id}`)
       .then(({ body }) => {
         assert.deepEqual(body, album);
-      })
-  })
+      });
+  });
 
   it('Gets all albums', () => {
     return request.get('/api/albums')
@@ -69,15 +61,15 @@ describe('Album API', () => {
           ...image
         });
         image = body;
-      })
-  })
+      });
+  });
 
   it('Retrieves all images by album id', () => {
     return request.get(`/api/albums/${album._id}/images`)
       .then(({ body }) => {
         assert.deepEqual(body[0], image);
-      })
-  })
+      });
+  });
 
   it('Deletes an album', () => {
     return request.delete(`/api/albums/${album._id}`)
@@ -86,6 +78,6 @@ describe('Album API', () => {
       })
       .then(found => {
         assert.isNull(found);
-      })
-  })
+      });
+  });
 });

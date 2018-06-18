@@ -24,7 +24,7 @@ describe('Album model test', () => {
     return validation.errors;
   };
 
-  it('Required fields working', () => {})
+  it('Required fields working', () => {});
   const album = new Album({});
   const errors = getValidationErrors(album.validateSync());
   assert.equal(Object.keys(errors).length, 3);
