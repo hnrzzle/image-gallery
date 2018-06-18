@@ -1,22 +1,14 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { getAlbums } from './reducers';
-import { addAlbum } from './actions';
 import styles from './NewAlbum.css';
-import PropTypes from 'prop-types';
 
 const defaultState = {
   title: '',
   description: '',
-  posterImage: ''
+  url: ''
 };
 
-class NewAlbum extends Component {
-  static propTypes = {
-    albums: PropTypes.array,
-    addAlbum: PropTypes.func.isRequired
-  };
-
+export default class NewImage extends Component {
+  
   state = {
     form: defaultState
   };
@@ -34,31 +26,25 @@ class NewAlbum extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.addAlbum(this.state.form);
   };
 
   render() {
 
-    const { title, description, posterImage } = this.state.form;
+    const { title, description, url } = this.state.form;
     
     return (
       <div className={styles.newAlbum}>
-        <h3>Create a New Album:</h3>
+        <h3>Add an Image:</h3>
         <form onSubmit={this.handleSubmit}>
           <label>Title:</label>
           <input type="text" name="title" value={title} onChange={this.handleChange}/>
-          <label>Link to Poster Image:</label>
-          <input type="text" name="posterImage" value={posterImage} onChange={this.handleChange}/>
+          <label>Link to Image:</label>
+          <input type="text" name="url" value={url} onChange={this.handleChange}/>
           <label>Description:</label>
           <textarea name="description" value={description} onChange={this.handleChange}/>
-          <button type="submit">Create your Album</button>
+          <button type="submit">Add your Image</button>
         </form>
       </div>
     );
   }
 }
-
-export default connect(
-  state => ({ albums: getAlbums(state) }),
-  { addAlbum }
-)(NewAlbum);
