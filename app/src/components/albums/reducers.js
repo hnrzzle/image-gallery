@@ -5,6 +5,7 @@ export const IMAGE_ADD = 'IMAGE_ADD';
 
 
 export const getAlbums = state => state.albums;
+export const getImages = state => state.images;
 export function albums(state = [], { type, payload }) {
   switch (type) {
     case ALBUMS_LOAD: 

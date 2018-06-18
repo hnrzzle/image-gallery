@@ -21,6 +21,12 @@ module.exports = router
       .then(album => res.json(album))
       .catch(err => errorHandler(err, req, res));
   })
+  .get('/albums/:id/images', (req, res) => {
+    return Image.findById({ albumId: req.params.id })
+      .lean()
+      .then(album => res.json(album))
+      .catch(err => errorHandler(err, req, res));
+  })
   .post('/albums/:id/images', (req, res) => {
     const image = req.body;
     image.albumId = req.params.id;
