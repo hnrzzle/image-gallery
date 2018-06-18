@@ -24,11 +24,7 @@ module.exports = router
   .get('/albums/:id/images', (req, res) => {
     return Image.find({ albumId: req.params.id })
       .lean()
-      .then(album => {
-        console.log('got here');
-        console.log(album);
-        res.json(album);
-      })
+      .then(album => res.json(album))
       .catch(err => errorHandler(err, req, res));
   })
   .post('/albums/:id/images', (req, res) => {
