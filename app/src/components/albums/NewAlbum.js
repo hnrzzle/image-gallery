@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getAlbums } from './reducers';
+import { addAlbum } from './actions';
 import styles from './NewAlbum.css';
+import PropTypes from 'prop-types';
 
 const defaultState = {
   title: '',
@@ -7,8 +11,12 @@ const defaultState = {
   posterImage: ''
 };
 
-export default class NewAlbum extends Component {
-  
+class NewAlbum extends Component {
+  static propTypes = {
+    albums: PropTypes.array,
+    addAlbum: PropTypes.func.isRequired
+  };
+
   state = {
     form: defaultState
   };
@@ -26,6 +34,7 @@ export default class NewAlbum extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    this.props.addAlbum(this.state.form);
   };
 
   render() {
@@ -38,7 +47,7 @@ export default class NewAlbum extends Component {
         <form onSubmit={this.handleSubmit}>
           <label>Title:</label>
           <input type="text" name="title" value={title} onChange={this.handleChange}/>
-          <label>Link to Image:</label>
+          <label>Link to Poster Image:</label>
           <input type="text" name="posterImage" value={posterImage} onChange={this.handleChange}/>
           <label>Description:</label>
           <textarea name="description" value={description} onChange={this.handleChange}/>
@@ -48,3 +57,8 @@ export default class NewAlbum extends Component {
     );
   }
 }
+
+export default connect(
+  state => ({ albums: getAlbums(state) }),
+  { addAlbum }
+)(NewAlbum);

@@ -4,7 +4,7 @@ import styles from './NewAlbum.css';
 const defaultState = {
   title: '',
   description: '',
-  posterImage: ''
+  url: ''
 };
 
 export default class NewImage extends Component {
@@ -30,7 +30,7 @@ export default class NewImage extends Component {
 
   render() {
 
-    const { title, description, posterImage } = this.state.form;
+    const { title, description, url } = this.state.form;
     
     return (
       <div className={styles.newAlbum}>
@@ -39,10 +39,10 @@ export default class NewImage extends Component {
           <label>Title:</label>
           <input type="text" name="title" value={title} onChange={this.handleChange}/>
           <label>Link to Image:</label>
-          <input type="text" name="posterImage" value={posterImage} onChange={this.handleChange}/>
+          <input type="text" name="url" value={url} onChange={this.handleChange}/>
           <label>Description:</label>
           <textarea name="description" value={description} onChange={this.handleChange}/>
-          <button type="submit">Create your Album</button>
+          <button type="submit">Add your Image</button>
         </form>
       </div>
     );
