@@ -1,5 +1,5 @@
 import { ALBUMS_LOAD, ALBUM_ADD, IMAGES_LOAD, IMAGE_ADD } from './reducers';
-import { getAllAlbums, getAlbum, postAlbum, getImages, postImage } from '../../services/api';
+import { getAllAlbums, postAlbum, getImages, postImage } from '../../services/api';
 
 export const loadAlbums = () => dispatch => {
   getAllAlbums()

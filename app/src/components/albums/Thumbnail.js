@@ -11,7 +11,7 @@ export default class Thumbnail extends Component {
   render() {
     const { image } = this.props;
 
-    const { _id, title, description, url, albumId } = image;
+    const { title, description, url } = image;
 
     return (
       <li className={styles.thumbnail}>
