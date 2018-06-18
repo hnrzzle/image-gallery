@@ -8,9 +8,9 @@ app.use(morgan('dev'));
 app.use(express.static('./public'));
 app.use(bodyParser.json());
 
-const images = require('./routes/images');
+const albums = require('./routes/albums');
 
-app.use('/api/images', images);
+app.use('/api', albums);
 
 app.use((req, res) => {
   res.sendFile('index.html', { root: './public'} );
