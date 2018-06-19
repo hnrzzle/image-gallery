@@ -8,8 +8,10 @@ app.use(morgan('dev'));
 app.use(express.static('./public'));
 app.use(bodyParser.json());
 
+const auth = require('./routes/auth');
 const albums = require('./routes/albums');
 
+app.use('/api/auth', auth);
 app.use('/api', albums);
 
 app.use((req, res) => {

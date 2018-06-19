@@ -2,10 +2,13 @@ const { assert } = require('chai');
 const request = require('./request');
 const Album = require('../../lib/models/Album');
 const { dropCollection } = require('./db');
+const { verify } = require('../../lib/auth/token-service');
 
-describe('Album API', () => {
+describe.only('Album API', () => {
   before(() => dropCollection('albums'));
+  before(() => dropCollection('users'));
 
+  
   let album = {
     title:  'Dark Side of the Moon',
     description:  'Pink Floyd in Space',
@@ -19,8 +22,26 @@ describe('Album API', () => {
     albumId:  null,
   };
   
+  let user = {
+    name: 'user',
+    email: 'user@user.com',
+    password: '123'
+  };
+
+  let token = '';
+
+  before(() => {
+    return request.post('/api/auth/signup')
+      .send(user)
+      .then(({ body }) => {
+        token = body.token;
+        user._id = verify(body.token).id;
+      });
+  });
+  
   it('Saves and retrieves an album', () => {
     return request.post('/api/albums')
+      .set('Authorization', token)
       .send(album)
       .then(({ body }) => {
         const { _id, __v } = body;
@@ -47,9 +68,10 @@ describe('Album API', () => {
         assert.deepEqual(body[0], album);
       });
   });
-
+    
   it('Saves an image', () => {
     return request.post(`/api/albums/${album._id}/images`)
+      .set('Authorization', token)
       .send(image)
       .then(({ body }) => {
         image.albumId = album._id;
@@ -73,6 +95,7 @@ describe('Album API', () => {
 
   it('Deletes an album', () => {
     return request.delete(`/api/albums/${album._id}`)
+      .set('Authorization', token)
       .then(() => {
         return Album.findById(album._id);
       })
