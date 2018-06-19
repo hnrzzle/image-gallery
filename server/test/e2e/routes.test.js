@@ -6,7 +6,21 @@ const { dropCollection } = require('./db');
 describe('Album API', () => {
   before(() => dropCollection('albums'));
   before(() => dropCollection('images'));
+  before(() => dropCollection('users'));
 
+  let token = null;
+
+  before(() => {
+    return request
+      .post('/api/auth/signup')
+      .send({
+        name: 'Frank',
+        email: 'me@me.com',
+        password: 'abc'
+      })
+      .then (({ body }) => token = body.token);
+  });
+  
   let album = {
     title:  'Dark Side of the Moon',
     description:  'Pink Floyd in Space',
@@ -20,9 +34,10 @@ describe('Album API', () => {
     albumId:  null,
   };
 
-  it.only('Saves and retrieves an album', () => {
+  it('Saves and retrieves an album', () => {
     return request.post('/api/albums')
       .send(album)
+      .set('Authorization', token)
       .then(({ body }) => {
         const { _id, __v } = body;
         assert.ok(_id);
@@ -36,21 +51,24 @@ describe('Album API', () => {
   });
 
   it('Gets an album by id', () => {
-    return request.get(`/albums/${album._id}`)
+    return request.get(`/api/albums/${album._id}`)
+      .set('Authorization', token)
       .then(({ body }) => {
         assert.deepEqual(body, album);
       });
   });
 
   it('Gets all albums', () => {
-    return request.get('/albums')
+    return request.get('/api/albums')
+      .set('Authorization', token)
       .then(({ body }) => {
         assert.deepEqual(body[0], album);
       });
   });
 
   it('Saves an image', () => {
-    return request.post(`/albums/${album._id}/images`)
+    return request.post(`/api/albums/${album._id}/images`)
+      .set('Authorization', token)
       .send(image)
       .then(({ body }) => {
         image.albumId = album._id;
@@ -66,14 +84,16 @@ describe('Album API', () => {
   });
 
   it('Retrieves all images by album id', () => {
-    return request.get(`/albums/${album._id}/images`)
+    return request.get(`/api/albums/${album._id}/images`)
+      .set('Authorization', token)
       .then(({ body }) => {
         assert.deepEqual(body[0], image);
       });
   });
 
   it('Deletes an album', () => {
-    return request.delete(`/albums/${album._id}`)
+    return request.delete(`/api/albums/${album._id}`)
+      .set('Authorization', token)
       .then(() => {
         return Album.findById(album._id);
       })
