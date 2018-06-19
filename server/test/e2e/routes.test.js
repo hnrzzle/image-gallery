@@ -4,7 +4,7 @@ const Album = require('../../lib/models/Album');
 const { dropCollection } = require('./db');
 const { verify } = require('../../lib/auth/token-service');
 
-describe.only('Album API', () => {
+describe('Album API', () => {
   before(() => dropCollection('albums'));
   before(() => dropCollection('users'));
 
