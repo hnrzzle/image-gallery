@@ -1,10 +1,23 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { getUser } from '../auth/reducers';
+import { logout } from '../auth/actions';
 import { Link } from 'react-router-dom';
 
+class Nav extends Component {
+  static propTypes = {
+    user: PropTypes.object,
+    logout: PropTypes.func.isRequired
+  };
 
-export default class Nav extends Component {
+  handleLogout = () => {
+    this.props.logout();
+  };
 
   render() {
+    const { user } = this.props;
+
     return (
       <nav>
         <ul>
@@ -12,8 +25,18 @@ export default class Nav extends Component {
           <li><Link to="/albums">Albums</Link></li>
           <li><Link to="/images">All Images</Link></li>
           <li><Link to="/albums/new">Create a New Album</Link></li>
+          {
+            user
+              ? <Link to="/" onClick={this.handleLogout}>Logout</Link>
+              : <Link to="/auth">Login</Link>
+          }
         </ul>
       </nav>
     );
   }
 }
+
+export default connect(
+  state => ({ user: getUser(state) }),
+  { logout }
+)(Nav);
