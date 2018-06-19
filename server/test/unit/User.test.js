@@ -13,6 +13,27 @@ describe('User model test', () => {
     data._id = user._id;
 
     assert.deepEqual(user.toJSON(), data);
+  });
+  
+  it('generates hash and checks password', () => {
+    const data = {
+      name: 'henry',
+      email: 'henry@henry.com',
+    };
+
+    const password = '123';
+    
+    const henry = new User(data);
+    data._id = henry._id;
+    
+    assert.deepEqual(henry.toJSON(), data);
+
+    henry.generateHash(password);
+    assert.ok(henry.hash);
+    assert.notEqual(henry.hash, password);
+
+    assert.isOk(henry.comparePassword(password));
+    
     
   });
 
