@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import PrivateRoute from './PrivateRoute';
+// import PrivateRoute from './PrivateRoute';
 import { tryLoadUser } from '../auth/actions';
 import { getCheckedAuth } from '../auth/reducers';
 import { connect } from 'react-redux';
@@ -27,7 +27,7 @@ class App extends PureComponent {
   }
 
   render() {
-    // const { checkedAuth } = this.props;
+    const { checkedAuth } = this.props;
     
     return (
       <Router>
@@ -35,6 +35,7 @@ class App extends PureComponent {
           <Nav/>
           <Header/>
           <main>
+            { checkedAuth &&
             <Switch>
               <Route exact path="/" component={Home}/>
 
@@ -46,8 +47,7 @@ class App extends PureComponent {
               <Route path="/auth" component={Auth}/>
               <Redirect to="/"/>
             </Switch>
-            {/* { checkedAuth &&
-            } */}
+            }
           </main>
           <footer>
             <h3>{'Footer'}</h3>
