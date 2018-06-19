@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getImages } from './reducers';
+import { addImage } from './actions';
+import PropTypes from 'prop-types';
 import styles from './NewAlbum.css';
 
 const defaultState = {
@@ -7,7 +11,11 @@ const defaultState = {
   url: ''
 };
 
-export default class NewImage extends Component {
+class NewImage extends Component {
+  
+  static propTypes = {
+    addImage: PropTypes.func.isRequired
+  };
   
   state = {
     form: defaultState
@@ -26,6 +34,7 @@ export default class NewImage extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    this.props.addImage(this.state.form);
   };
 
   render() {
@@ -48,3 +57,8 @@ export default class NewImage extends Component {
     );
   }
 }
+
+export default connect(
+  state => ({ images: getImages(state) }),
+  { addImage }
+)(NewImage);
