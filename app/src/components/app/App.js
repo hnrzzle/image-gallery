@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import PrivateRoute from './PrivateRoute';
 import { tryLoadUser } from '../auth/actions';
 import { getCheckedAuth } from '../auth/reducers';
+import { connect } from 'react-redux';
 
 import Nav from './Nav';
 import Home from './Home';
@@ -13,7 +14,6 @@ import Images from '../images/Images';
 import Albums from '../albums/Albums';
 import AlbumDetail from '../albums/AlbumDetail';
 import NewAlbum from '../albums/NewAlbum';
-import { connect } from 'net';
 
 class App extends PureComponent {
   static propTypes = {
