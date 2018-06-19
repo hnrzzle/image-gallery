@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import Nav from './Nav';
 import Home from './Home';
 import Header from './Header';
+import Auth from '../auth/Auth';
 import Images from '../images/Images';
 
 import Albums from '../albums/Albums';
@@ -23,7 +24,7 @@ export default class App extends Component {
               <Route exact path="/albums" component={Albums}/>
               <Route exact path="/albums/new" component={NewAlbum}/>
               <Route path="/albums/:id" component={AlbumDetail} />
-
+              <Route path="/auth" component={Auth}/>
               <Route exact path="/images" component={Images}/>
               <Redirect to="/"/>
             </Switch>
