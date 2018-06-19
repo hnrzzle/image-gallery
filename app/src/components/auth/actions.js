@@ -1,4 +1,4 @@
-import { USER_AUTH, LOGOUT, CHECKED_AUTH } from '.reducers';
+import { USER_AUTH, LOGOUT, CHECKED_AUTH } from './reducers';
 import { verifyUser } from '../../services/api';
 import { getStoredUser, clearStoredUser } from '../../services/request';
 
