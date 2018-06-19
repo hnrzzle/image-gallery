@@ -25,5 +25,5 @@ export function images(state = [], { type, payload }) {
       return [...state, payload];
     default:
       return state;
-  }
+  } 
 }
