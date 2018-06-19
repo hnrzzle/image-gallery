@@ -27,7 +27,7 @@ class App extends PureComponent {
   }
 
   render() {
-    const { checkedAuth } = this.props;
+    // const { checkedAuth } = this.props;
     
     return (
       <Router>
@@ -35,19 +35,19 @@ class App extends PureComponent {
           <Nav/>
           <Header/>
           <main>
-            { checkedAuth &&
             <Switch>
               <Route exact path="/" component={Home}/>
 
-              <Route path="/auth" component={Auth}/>
               <Route exact path="/albums" component={Albums}/>
-              <PrivateRoute exact path="/albums/new" component={NewAlbum}/>
-              <PrivateRoute path="/albums/:id" component={AlbumDetail} />
+              <Route exact path="/albums/new" component={NewAlbum}/>
+              <Route path="/albums/:id" component={AlbumDetail} />
 
               <Route exact path="/images" component={Images}/>
+              <Route path="/auth" component={Auth}/>
               <Redirect to="/"/>
             </Switch>
-            }
+            {/* { checkedAuth &&
+            } */}
           </main>
           <footer>
             <h3>{'Footer'}</h3>
