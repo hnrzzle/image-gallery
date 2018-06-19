@@ -39,11 +39,11 @@ class App extends PureComponent {
             <Switch>
               <Route exact path="/" component={Home}/>
 
-              <Route exact path="/albums" component={Albums}/>
+              <PrivateRoute exact path="/albums" component={Albums}/>
               <PrivateRoute exact path="/albums/new" component={NewAlbum}/>
               <PrivateRoute path="/albums/:id" component={AlbumDetail} />
 
-              <Route exact path="/images" component={Images}/>
+              <PrivateRoute exact path="/images" component={Images}/>
               <Route path="/auth" component={Auth}/>
               <Redirect to="/"/>
             </Switch>
