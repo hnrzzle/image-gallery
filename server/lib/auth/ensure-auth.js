@@ -1,4 +1,4 @@
-/* eslint no-conosle: off */
+/* eslint no-console: off */
 const tokenService = require('./token-service');
 
 module.exports = function getEnsureAuth(log = console.log) {
