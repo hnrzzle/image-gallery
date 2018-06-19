@@ -11,7 +11,7 @@ module.exports = function getEnsureAuth(log = console.log) {
         req.user = payload;
         next();
       }, () => {
-        next({ code: 401, error: 'Authoriation Failed' });
+        next({ code: 401, error: 'Authorization Failed' });
       })
       .catch(err=> {
         log('unexpected next() failure', err);
