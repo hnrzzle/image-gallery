@@ -1,3 +1,4 @@
+/* eslint no-console: off */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route, Link, Redirect } from 'react-router-dom';
@@ -5,7 +6,6 @@ import { connect } from 'react-redux';
 import { signin, signup } from './actions';
 import { getUser } from './reducers';
 import Credentials from './Credentials';
-import styles from './Auth.css';
 
 class Auth extends PureComponent {
 
@@ -23,7 +23,7 @@ class Auth extends PureComponent {
     if(user) return <Redirect to={redirect}/>;
 
     return (
-      <section className={styles.auth}>
+      <section>
         <Switch>
           <Route path="/auth/signin" component={() => (
             <div>
