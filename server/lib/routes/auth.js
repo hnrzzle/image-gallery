@@ -33,7 +33,7 @@ router
         return user.save();
       })
       .then(user => Promise.all([user, tokenService.sign(user)]))
-      .then(({user, token }) => res.send({
+      .then(([user, token ]) => res.send({
         token,
         name: user.name
       }))
