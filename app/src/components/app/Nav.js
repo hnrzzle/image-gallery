@@ -27,8 +27,8 @@ class Nav extends Component {
           <li><Link to="/albums/new">Create a New Album</Link></li>
           {
             user
-              ? <Link to="/" onClick={this.handleLogout}>Logout</Link>
-              : <Link to="/auth">Login</Link>
+              ? <li><Link to="/" onClick={this.handleLogout}>Logout</Link></li>
+              : <li><Link to="/auth">Login</Link></li>
           }
         </ul>
       </nav>

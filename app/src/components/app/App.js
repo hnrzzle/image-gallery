@@ -10,6 +10,7 @@ import Nav from './Nav';
 import Home from './Home';
 import Header from './Header';
 import Images from '../images/Images';
+import Auth from '../auth/Auth';
 
 import Albums from '../albums/Albums';
 import AlbumDetail from '../albums/AlbumDetail';
@@ -38,6 +39,7 @@ class App extends PureComponent {
             <Switch>
               <Route exact path="/" component={Home}/>
 
+              <Route path="/auth" component={Auth}/>
               <Route exact path="/albums" component={Albums}/>
               <PrivateRoute exact path="/albums/new" component={NewAlbum}/>
               <PrivateRoute path="/albums/:id" component={AlbumDetail} />
