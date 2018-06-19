@@ -7,7 +7,6 @@ export const loadAlbums = () => dispatch => {
   getAllAlbums()
     .then(
       albums => {
-        console.log(albums);
         dispatch({
           type: ALBUMS_LOAD,
           payload: albums
