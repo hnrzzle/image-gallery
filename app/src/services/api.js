@@ -1,6 +1,7 @@
 import { get, post } from './request';
 
 const URL = 'api/albums';
+const AUTH_URL = 'api/auth';
 
 export const getAllAlbums = () => get(URL);
 export const getAlbum = id => get(`${URL}/${id}`);
