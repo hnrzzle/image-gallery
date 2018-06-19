@@ -13,7 +13,7 @@ const auth = require('./routes/auth');
 const albums = require('./routes/albums');
 
 app.use('/api/auth', auth);
-app.use('/api/albums', ensureAuth, albums);
+app.use('/api/albums', ensureAuth(), albums);
 
 app.use((req, res) => {
   res.sendFile('index.html', { root: './public'} );

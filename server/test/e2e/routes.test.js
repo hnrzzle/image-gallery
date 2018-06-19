@@ -20,7 +20,7 @@ describe('Album API', () => {
     albumId:  null,
   };
 
-  it('Saves and retrieves an album', () => {
+  it.only('Saves and retrieves an album', () => {
     return request.post('/api/albums')
       .send(album)
       .then(({ body }) => {

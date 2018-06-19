@@ -6,11 +6,11 @@ before(() => connect('mongodb://localhost:27019/albums'));
 after(() => mongoose.connection.close());
 
 module.exports = {
-  dropCollection(albums) {
-    return mongoose.connection.dropCollection(albums)
+  dropCollection(name) {
+    const collection = mongoose.connection.collections[name];
+    return collection.drop()
       .catch(err => {
         if(err.codeName !== 'NamespaceNotFound') throw err;
-
       });
   }
 };
