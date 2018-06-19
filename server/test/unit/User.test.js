@@ -1,4 +1,6 @@
 const { assert } = require('chai');
+const mongoose = require('mongoose');
+mongoose.models = {};
 const User = require('../../lib/models/User');
 
 describe('User model test', () => {
