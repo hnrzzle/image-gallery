@@ -34,7 +34,6 @@ describe('User model test', () => {
 
     assert.isOk(henry.comparePassword(password));
     
-    
   });
 
 });
