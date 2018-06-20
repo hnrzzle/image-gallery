@@ -1,6 +1,6 @@
 /* eslint no-console: 0 */
 
-import { ALBUMS_LOAD, ALBUM_ADD, IMAGES_LOAD, IMAGE_ADD } from './reducers';
+import { ALBUMS_LOAD, ALBUM_ADD, IMAGES_LOAD, IMAGE_ADD, LOAD_ALL_IMAGES } from './reducers';
 import { getAllAlbums, postAlbum, getAllImages, getImages, postImage } from '../../services/api';
 
 export const loadAlbums = () => dispatch => {
@@ -25,7 +25,7 @@ export const loadAllImages = () => dispatch => {
       images => {
         console.log(images);
         dispatch({
-          type: IMAGES_LOAD,
+          type: LOAD_ALL_IMAGES,
           payload: images
         });
       },

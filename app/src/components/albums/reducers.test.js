@@ -1,4 +1,4 @@
-import { albums, ALBUMS_LOAD, ALBUM_ADD, images, IMAGE_ADD, IMAGES_LOAD, imagesAll } from './reducers';
+import { albums, ALBUMS_LOAD, ALBUM_ADD, images, IMAGE_ADD, IMAGES_LOAD, imagesAll, LOAD_ALL_IMAGES } from './reducers';
 
 describe('Album reducers', () => {
 
@@ -85,7 +85,7 @@ describe('images all reducer', () => {
       url: 'https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg',
       albumId: '4'
     };
-    const state = imagesAll(undefined, { type: IMAGES_LOAD, payload: [image] });
+    const state = imagesAll(undefined, { type: LOAD_ALL_IMAGES, payload: [image] });
     expect(state).toEqual([image]);
   });
 

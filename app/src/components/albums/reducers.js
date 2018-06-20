@@ -2,6 +2,7 @@ export const ALBUMS_LOAD = 'ALBUMS_LOAD';
 export const ALBUM_ADD = 'ALBUM_ADD';
 export const IMAGES_LOAD = 'IMAGES_LOAD';
 export const IMAGE_ADD = 'IMAGE_ADD';
+export const LOAD_ALL_IMAGES = 'LOAD_ALL_IMAGES';
 
 
 export const getAlbums = state => state.albums;
@@ -32,7 +33,7 @@ export function images(state = [], { type, payload }) {
 
 export function imagesAll(state = [], { type, payload }) {
   switch (type) {
-    case IMAGES_LOAD:
+    case LOAD_ALL_IMAGES:
       return payload;
     default:
       return state;
