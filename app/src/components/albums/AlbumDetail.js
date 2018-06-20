@@ -40,10 +40,10 @@ class Album extends Component {
         </ul>
 
         <Switch>
-          <Route path={`/albums/${id}/images/thumbnail`} render={({ match }) => {return <ImageThumbnails albumId={match.params.id} />;}}/>
+          <Route path={`/albums/${id}/images/thumbnail`} render={({ history }) => {return <ImageThumbnails albumId={id} history={history} />;}}/>
           <Route path={`/albums/${id}/images/list`} render={() => {return <ImageList />;}}/>
           <Route path={`/albums/${id}/images/gallery`} render={() => {return <ImageGallery />;}}/>
-          <PrivateRoute path={`/albums/${id}/images/new`} render={({ match }) => {return <NewImage albumId={match.params.id}/>;}}/>
+          <Route path={`/albums/${id}/images/new`} render={() => {return <NewImage albumId={id}/>;}}/>
           <Redirect to={`/albums/${id}/images/thumbnail`}/>
         </Switch>
 

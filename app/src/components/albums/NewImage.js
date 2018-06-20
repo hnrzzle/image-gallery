@@ -14,7 +14,9 @@ const defaultState = {
 class NewImage extends Component {
   
   static propTypes = {
-    addImage: PropTypes.func.isRequired
+    addImage: PropTypes.func.isRequired,
+    albumId: PropTypes.string.isRequired,
+    history: PropTypes.object
   };
   
   state = {
@@ -33,11 +35,14 @@ class NewImage extends Component {
   };
 
   handleSubmit = event => {
+    const { addImage, albumId } = this.props; 
     event.preventDefault();
-    this.props.addImage(this.state.form);
+    addImage(this.state.form, albumId);
+    // this.props.history.push(`/albums/${this.props.albumId}/thumbnail`);
   };
 
   render() {
+    console.log(this.props.history);
 
     const { title, description, url } = this.state.form;
     

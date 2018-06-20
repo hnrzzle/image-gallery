@@ -49,8 +49,8 @@ export const loadImages = (id) => dispatch => {
     );
 };
 
-export const addImage = image => dispatch => {
-  postImage(image)
+export const addImage = (image, albumId) => dispatch => {
+  postImage(image, albumId)
     .then(
       image => {
         dispatch({
