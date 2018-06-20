@@ -13,12 +13,12 @@ class Auth extends PureComponent {
     signin: PropTypes.func.isRequired,
     signup: PropTypes.func.isRequired,
     location: PropTypes.object
-  }
+  };
 
   render() {
     const { user, signin, signup, location } = this.props;
     const redirect = location.state ? location.state.from : '/';
-    console.log('redirect is', redirect);
+    console.log('redirect is', redirect); // eslint-disable-line
     if(user) return <Redirect to={redirect}/>;
     
     return (
