@@ -28,3 +28,12 @@ export function images(state = [], { type, payload }) {
       return state;
   } 
 }
+
+export function imagesAll(state = [], { type, payload }) {
+  switch (type) {
+    case IMAGES_LOAD:
+      return payload;
+    default:
+      return state;
+  }
+}
