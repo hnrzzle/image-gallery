@@ -6,6 +6,7 @@ export const IMAGE_ADD = 'IMAGE_ADD';
 
 export const getAlbums = state => state.albums;
 export const getImages = state => state.images;
+export const getImagesAll = state => state.imagesAll;
 export const getImageId = state => state.imageId;
 export function albums(state = [], { type, payload }) {
   switch (type) {
