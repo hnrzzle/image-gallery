@@ -10,9 +10,11 @@ app.use(bodyParser.json());
 
 const auth = require('./routes/auth');
 const albums = require('./routes/albums');
+const images = require('./routes/images');
 
 app.use('/api/auth', auth);
 app.use('/api/albums', albums);
+app.use('/api/images', images);
 
 app.use((req, res) => {
   res.sendFile('index.html', { root: './public'} );

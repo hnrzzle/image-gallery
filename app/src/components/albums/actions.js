@@ -1,7 +1,7 @@
 /* eslint no-console: 0 */
 
 import { ALBUMS_LOAD, ALBUM_ADD, IMAGES_LOAD, IMAGE_ADD } from './reducers';
-import { getAllAlbums, postAlbum, getImages, postImage } from '../../services/api';
+import { getAllAlbums, postAlbum, getImages, postImage, getAllImages } from '../../services/api';
 
 export const loadAlbums = () => dispatch => {
   getAllAlbums()
@@ -35,6 +35,21 @@ export const addAlbum = album => dispatch => {
 
 export const loadImages = (id) => dispatch => {
   getImages(id)
+    .then(
+      images => {
+        dispatch({
+          type: IMAGES_LOAD,
+          payload: images
+        });
+      },
+      err => {
+        console.error(err);
+      }
+    );
+};
+
+export const loadAllImages = () => dispatch => {
+  getAllImages()
     .then(
       images => {
         dispatch({

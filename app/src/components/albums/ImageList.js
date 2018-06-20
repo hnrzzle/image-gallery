@@ -5,7 +5,7 @@ export default class ImageList extends Component {
   render() {
 
     return (
-      <h3>List View</h3>      
+      <h3>List View</h3>
     );
   }
 }

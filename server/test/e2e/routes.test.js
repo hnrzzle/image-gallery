@@ -83,6 +83,13 @@ describe('Album API', () => {
       });
   });
 
+  it('Retrieves all images', () => {
+    return request.get('/api/images')
+      .then(({ body }) => {
+        assert.deepEqual(body[0], image);
+      });
+  });
+
   it('Retrieves all images by album id', () => {
     return request.get(`/api/albums/${album._id}/images`)
       .set('Authorization', token)
