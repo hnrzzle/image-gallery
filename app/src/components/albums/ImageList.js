@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
+import { getImages } from './reducers';
+import { loadImages } from './actions';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-export default class ImageList extends Component {
+class ImageList extends Component {
+
+  static propTypes = {
+    albumId: PropTypes.string.isRequired,
+    images: PropTypes.array,
+    loadImages: PropTypes.func.isRequired
+  };
 
   render() {
 
@@ -9,3 +19,8 @@ export default class ImageList extends Component {
     );
   }
 }
+
+export default connect(
+  state => ({ images: getImages(state) }),
+  { loadImages }
+)(ImageList);

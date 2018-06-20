@@ -41,7 +41,7 @@ class Album extends Component {
 
         <Switch>
           <Route path={`/albums/${id}/images/thumbnail`} render={({ history }) => {return <ImageThumbnails albumId={id} history={history} />;}}/>
-          <Route path={`/albums/${id}/images/list`} render={() => {return <ImageList />;}}/>
+          <Route path={`/albums/${id}/images/list`} render={() => {return <ImageList albumId={id} />;}}/>
           <Route path={`/albums/${id}/images/gallery`} render={() => {return <ImageGallery />;}}/>
           <PrivateRoute path={`/albums/${id}/images/new`} render={() => {return <NewImage albumId={id}/>;}}/>
           <Redirect to={`/albums/${id}/images/thumbnail`}/>
