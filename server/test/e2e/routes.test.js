@@ -14,9 +14,9 @@ describe('Album API', () => {
     return request
       .post('/api/auth/signup')
       .send({
-        name: 'Frank',
-        email: 'me@me.com',
-        password: 'abc'
+        name: 'j',
+        email: 'j',
+        password: 'j'
       })
       .then (({ body }) => token = body.token);
   });
