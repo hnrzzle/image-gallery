@@ -10,6 +10,11 @@ module.exports = router
       .then(albums => res.json(albums))
       .catch(err => errorHandler(err, req, res));
   })
+  .get('/images', (req, res) => {
+    Image.find()
+      .then(images => res.json(images))
+      .catch(err => errorHandler(err, req, res));
+  })
   .post('/albums', ensureAuth, (req, res) => {
     const album = req.body;
     return new Album(album).save()

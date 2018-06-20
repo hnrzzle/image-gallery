@@ -38,7 +38,8 @@ class NewImage extends Component {
     const { addImage, albumId } = this.props; 
     event.preventDefault();
     addImage(this.state.form, albumId);
-    // this.props.history.push(`/albums/${this.props.albumId}/thumbnail`);
+    
+    // this.props.history.push(`/albums/${albumId}/thumbnail`);
   };
 
   render() {
