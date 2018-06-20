@@ -52,7 +52,6 @@ describe('Album API', () => {
 
   it('Gets an album by id', () => {
     return request.get(`/api/albums/${album._id}`)
-      .set('Authorization', token)
       .then(({ body }) => {
         assert.deepEqual(body, album);
       });
@@ -60,7 +59,6 @@ describe('Album API', () => {
 
   it('Gets all albums', () => {
     return request.get('/api/albums')
-      .set('Authorization', token)
       .then(({ body }) => {
         assert.deepEqual(body[0], album);
       });
@@ -92,7 +90,6 @@ describe('Album API', () => {
 
   it('Retrieves all images by album id', () => {
     return request.get(`/api/albums/${album._id}/images`)
-      .set('Authorization', token)
       .then(({ body }) => {
         assert.deepEqual(body[0], image);
       });
