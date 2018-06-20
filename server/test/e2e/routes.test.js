@@ -30,7 +30,7 @@ describe('Album API', () => {
   let image = {
     title:  'A cute bunny',
     description:  'Is cute bunny',
-    url:  'fake url.com',
+    url:  'https://pbs.twimg.com/profile_images/447374371917922304/P4BzupWu.jpeg',
     albumId:  null,
   };
 
