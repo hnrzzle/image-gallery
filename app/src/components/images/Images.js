@@ -23,7 +23,11 @@ class Images extends Component {
         <h3>Images</h3>
         <ul>
           {images.map((image, i) => (
-            <li key={i}>{i}{image}</li>
+            <li key={i}>
+              <img className="posterimage" src={image.url}/>
+              <h2>{image.title}</h2>
+              <p>{image.description}</p>
+            </li>
           ))}
         </ul>
       </Fragment>
