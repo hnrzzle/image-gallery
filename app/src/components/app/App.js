@@ -14,6 +14,7 @@ import Images from '../images/Images';
 import Albums from '../albums/Albums';
 import AlbumDetail from '../albums/AlbumDetail';
 import NewAlbum from '../albums/NewAlbum';
+import styles from './App.css';
 
 class App extends Component {
 
@@ -29,7 +30,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="app">
+        <div className={styles.app}>
           <Nav/>
           <Header/>
           <main>
