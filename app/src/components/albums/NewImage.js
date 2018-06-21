@@ -43,7 +43,6 @@ class NewImage extends Component {
   };
 
   render() {
-    console.log(this.props.history);
 
     const { title, description, url } = this.state.form;
     
