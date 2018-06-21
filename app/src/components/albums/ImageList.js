@@ -24,14 +24,14 @@ class ImageList extends Component {
       <Fragment>
         <h3>Image Details</h3>
         <div className={styles.imagelist}>
-          <h4 className="title-header">Title</h4>
-          <h4 className="description-header">Description</h4>
-          <h4 className="url-header">URL</h4>
+          <div><h4 className="title-header">Title</h4></div>
+          <div><h4 className="description-header">Description</h4></div>
+          <div><h4 className="url-header">URL</h4></div>
           {images.map((image, i) => (
             <Fragment  key={i}>
-              <h4 className="title">{image.title}</h4>
-              <span className="description">{image.description}</span>
-              <span className="url">{image.url}</span>
+              <div><h4 className="title">{image.title}</h4></div>
+              <div><span className="description">{image.description}</span></div>
+              <div><span className="url">{image.url}</span></div>
             </Fragment>
           ))}
         </div>
