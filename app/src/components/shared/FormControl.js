@@ -12,8 +12,8 @@ class FormControl extends PureComponent {
 
     return (
       <div>
-        { label && <label>{label}:</label>}
-        <div>
+        { label && <label>{label}:</label> }
+        <div className="control">
           {children}
         </div>
       </div>

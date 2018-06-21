@@ -7,7 +7,7 @@ import { Route, Redirect } from 'react-router-dom';
 const PrivateRoute = ({ user, component: Component, render, ...rest }) => {
 
   return <Route {...rest} render={props => {
-    if(!user) return <Redirect
+    if(!user) return <Redirect 
       to={{
         pathname: '/auth/signin',
         state: { from: props.location.pathname }
@@ -17,7 +17,6 @@ const PrivateRoute = ({ user, component: Component, render, ...rest }) => {
     if(Component) return <Component {...props}/>;
     if(render) return render(props);
     return null;
-
   }}/>;
 };
 

@@ -8,7 +8,7 @@ import styles from './Images.css';
 class Images extends Component {
 
   static propTypes = {
-    images: PropTypes.array,
+    imagesAll: PropTypes.array,
     loadAllImages: PropTypes.func.isRequired
   };
 
@@ -17,18 +17,14 @@ class Images extends Component {
   }
 
   render() {
-    const { images } = this.props;
+    const { imagesAll } = this.props;
 
     return (
       <Fragment>
         <h3>Images</h3>
-        <ul className={styles.imageUl}>
-          {images.map((image, i) => (
-            <li className={styles.imageLi} key={i}>
-              <img className="posterimage" src={image.url}/>
-              <h2>{image.title}</h2>
-              <p>{image.description}</p>
-            </li>
+        <ul className={styles.thumbnails}>
+          {imagesAll.map((image, i) => (
+            <Thumbnail key={i} image={image}/>
           ))}
         </ul>
       </Fragment>
@@ -37,6 +33,6 @@ class Images extends Component {
 }
 
 export default connect(
-  state => ({ images: getImages(state) }),
+  state => ({ imagesAll: getImagesAll(state) }),
   { loadAllImages }
 )(Images);

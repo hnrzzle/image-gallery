@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken-promisified');
-const appSecret = process.env.APP_SECRET || 'change-me';
+const appSecret = process.env.APP_SECRET || 'secret';
 
 module.exports = {
   sign(user) {

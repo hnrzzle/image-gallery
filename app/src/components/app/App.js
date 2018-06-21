@@ -9,12 +9,25 @@ import { connect } from 'react-redux';
 import Nav from './Nav';
 import Home from './Home';
 import Header from './Header';
+import Auth from '../auth/Auth';
 import Images from '../images/Images';
 import Auth from '../auth/Auth';
 
 import Albums from '../albums/Albums';
 import AlbumDetail from '../albums/AlbumDetail';
 import NewAlbum from '../albums/NewAlbum';
+import styles from './App.css';
+
+class App extends Component {
+
+  static propTypes = {
+    tryLoadUser: PropTypes.func.isRequired,
+    checkedAuth: PropTypes.bool.isRequired
+  };
+
+  componentDidMount() {
+    this.props.tryLoadUser();
+  }
 
 class App extends PureComponent {
   static propTypes = {
@@ -31,7 +44,7 @@ class App extends PureComponent {
     
     return (
       <Router>
-        <div className="app">
+        <div className={styles.app}>
           <Nav/>
           <Header/>
           <main>
@@ -41,8 +54,8 @@ class App extends PureComponent {
 
               <Route exact path="/albums" component={Albums}/>
               <PrivateRoute exact path="/albums/new" component={NewAlbum}/>
-              <PrivateRoute path="/albums/:id" component={AlbumDetail} />
-
+              <Route path="/albums/:id" component={AlbumDetail} />
+              <Route path="/auth" component={Auth}/>
               <Route exact path="/images" component={Images}/>
               <Route path="/auth" component={Auth}/>
               <Redirect to="/"/>

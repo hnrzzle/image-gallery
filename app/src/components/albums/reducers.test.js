@@ -1,4 +1,4 @@
-import { albums, ALBUMS_LOAD, ALBUM_ADD, images, IMAGE_ADD, IMAGES_LOAD } from './reducers';
+import { albums, ALBUMS_LOAD, ALBUM_ADD, images, IMAGE_ADD, IMAGES_LOAD, imagesAll, LOAD_ALL_IMAGES } from './reducers';
 
 describe('Album reducers', () => {
 
@@ -67,6 +67,26 @@ describe('images reducers', () => {
     };
     const state = images([image], { type: IMAGE_ADD, payload: image2 });
     expect(state).toEqual([image, image2]);
+  });
+
+});
+
+describe('images all reducer', () => {
+
+  it('returns empty array for default state', () => {
+    const state = imagesAll(undefined, {});
+    expect(state).toEqual([]);
+  });
+
+  it('loads images', () => {
+    const image = {
+      title: 'A Scenic Beach',
+      description: 'A beach...',
+      url: 'https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg',
+      albumId: '4'
+    };
+    const state = imagesAll(undefined, { type: LOAD_ALL_IMAGES, payload: [image] });
+    expect(state).toEqual([image]);
   });
 
 });

@@ -16,7 +16,6 @@ describe('auth action creators', () => {
     it(`creates ${name} action`, () => {
       const promise = Promise.resolve();
       mockSvc.mockReturnValueOnce(promise);
-
       const credentials = {};
       const { type, payload } = actionCreator(credentials);
       expect(type).toBe(USER_AUTH);

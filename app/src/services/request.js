@@ -33,7 +33,6 @@ function request(url, options = {}, data) {
     if(!options.headers) options.headers = {};
     options.headers.Authorization = token;
   }
-  
   return fetch(url, options)
     .then(response => [response.ok, response.json()])
     .then(([ok, json]) => {
@@ -46,7 +45,7 @@ const headers = {
   'content-type': 'application/json'
 };
 
-export const get = url => request(url);
+export const get = (url, options = {}) => request(url, { method: 'GET', ...options });
 export const post = (url, data) => request(url, { method: 'POST', headers }, data);
 export const put = (url, data) => request(url, { method: 'PUT', headers }, data);
 export const del = (url, data) => request(url, { method: 'DELETE' }, data);

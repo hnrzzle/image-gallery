@@ -2,6 +2,7 @@ const { assert } = require('chai');
 const request = require('./request');
 const Album = require('../../lib/models/Album');
 const { dropCollection } = require('./db');
+const { verify } = require('../../lib/auth/token-service');
 
 describe('Album API', () => {
   before(() => dropCollection('albums'));
@@ -33,9 +34,10 @@ describe('Album API', () => {
     url:  'https://pbs.twimg.com/profile_images/447374371917922304/P4BzupWu.jpeg',
     albumId:  null,
   };
-
+  
   it('Saves and retrieves an album', () => {
     return request.post('/api/albums')
+      .set('Authorization', token)
       .send(album)
       .set('Authorization', token)
       .then(({ body }) => {
@@ -63,7 +65,7 @@ describe('Album API', () => {
         assert.deepEqual(body[0], album);
       });
   });
-
+    
   it('Saves an image', () => {
     return request.post(`/api/albums/${album._id}/images`)
       .set('Authorization', token)

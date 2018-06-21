@@ -30,7 +30,7 @@ export default class Credentials extends PureComponent {
 
     return (
       <form onSubmit={this.handleSubmit}>
-        { allowName &&
+        { allowName && 
           <FormControl label="name">
             <input name="name" value={name} onChange={this.handleChange}/>
           </FormControl>
@@ -43,7 +43,6 @@ export default class Credentials extends PureComponent {
           <input type="password" name="password"
             value={password} onChange={this.handleChange}/>
         </FormControl>
-
         <FormControl>
           <button>{action}</button>
         </FormControl>

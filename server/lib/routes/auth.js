@@ -39,7 +39,6 @@ router
       }))
       .catch(next);
   })
-
   .post('/signin', bodyParser, hasEmailAndPassword, (req, res, next) => {
     const { email, password } = req.body;
     delete req.body.password;
