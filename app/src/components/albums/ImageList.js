@@ -3,7 +3,7 @@ import { getImages } from './reducers';
 import { loadImages } from './actions';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import styles from './ImageList';
+import styles from './ImageList.css';
 
 class ImageList extends Component {
 
@@ -23,7 +23,7 @@ class ImageList extends Component {
     return (
       <Fragment>
         <h3>Image Details</h3>
-        <div className={styles.list}>
+        <div className={styles.imagelist}>
           <h4 className="title-header">Title</h4>
           <h4 className="description-header">Description</h4>
           <h4 className="url-header">URL</h4>
